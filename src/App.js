@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import getQuestions from "./Components/Questions/Questions";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const [data, setData] = useState();
+  const TRIVIA_API_GET_10_QUESTIONS = "https://opentdb.com/api.php?amount=10";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(TRIVIA_API_GET_10_QUESTIONS);
+      // console.log(response.data.results);
+      setData(response.data.results);
+    };
+
+    fetchData();
+  }, []);
+
+  if (!data) {
+    console.log("______________Loading___________________");
+    return (
+      <div className="App">
+        <h1>Loading...⏳</h1>
+      </div>
+    );
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Trivia Royale</h1>
+      <ul>
+        {data.map((item) => (
+          <li key={item.question}>{item.question}</li>
+        ))}
+      </ul>
     </div>
   );
 }
