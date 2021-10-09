@@ -1,38 +1,45 @@
 import "./App.css";
 import getQuestions from "./Components/Questions/Questions";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { useAxios } from "./Hooks/AxiosHook";
 
 function App() {
-  const [data, setData] = useState();
-  const TRIVIA_API_GET_10_QUESTIONS = "https://opentdb.com/api.php?amount=10";
+  const [data, setData] = useState([]);
+  const { response, loading, error } = useAxios({
+    method: "GET",
+    url: "",
+  });
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(TRIVIA_API_GET_10_QUESTIONS);
-      // console.log(response.data.results);
-      setData(response.data.results);
-    };
+    if (response !== null && response !== undefined) {
+      setData(response);
+    }
+  }, [response]);
 
-    fetchData();
-  }, []);
+  console.log(data);
 
-  if (!data) {
-    console.log("______________Loading___________________");
-    return (
-      <div className="App">
-        <h1>Loading...⏳</h1>
-      </div>
-    );
-  }
   return (
     <div className="App">
       <h1>Trivia Royale</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.question}>{item.question}</li>
-        ))}
-      </ul>
+
+      {loading ? (
+        <p>loading...</p>
+      ) : (
+        <div>
+          {error && (
+            <div>
+              <p>{error.message}</p>
+            </div>
+          )}
+          <div>
+            {" "}
+            {
+              // no need to use another state to store data, response is sufficient
+              response && <p>{response.results[0].question}</p>
+            }
+          </div>
+        </div>
+      )}
     </div>
   );
 }
