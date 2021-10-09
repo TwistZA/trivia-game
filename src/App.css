@@ -14,3 +14,24 @@
   color: black;
 }
 
+.mainContainer{
+  display:flex;
+  flex-direction: column;
+  width:90vw;
+  align-items: center;
+  padding: 10px;
+  border: solid 1px slategrey
+}
+
+.question{
+  text-align: center;
+  margin: 20px 20px;
+}
+
+.buttonsContainer{
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+}
