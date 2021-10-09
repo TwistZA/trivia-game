@@ -8,9 +8,10 @@ function App() {
   const [count, setCount] = useState(1);
   const maxCount = 10;
 
+  // get 10 random trivia from free web api with  this re-usable axios custom hook
   const { response, loading, error } = useAxios({
     method: "GET",
-    url: "",
+    url: "https://opentdb.com/api.php?amount=10",
   });
 
   useEffect(() => {
