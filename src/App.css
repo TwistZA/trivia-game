@@ -31,3 +31,7 @@
   justify-content: space-around;
   width: 50%;
 }
+
+button:hover{
+  cursor: pointer;
+}
