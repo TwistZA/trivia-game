@@ -2,10 +2,9 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useAxios } from "./Hooks/AxiosHook";
 import Counter from "./Components/Counter/Counter";
-import parseStringAsDOM from "./Helpers/parseStringAsDOM";
+import Question from "./Components/Questions/Questions";
 
 function App() {
-  const [data, setData] = useState([]);
   const [count, setCount] = useState(1);
   const maxCount = 10;
 
@@ -16,11 +15,9 @@ function App() {
 
   useEffect(() => {
     if (response !== null && response !== undefined) {
-      setData(response);
+      console.log(response.results);
     }
   }, [response]);
-
-  console.log(data.results);
 
   return (
     <div className="App">
@@ -41,9 +38,7 @@ function App() {
               response && (
                 <div className="mainContainer">
                   <Counter count={count} maxCount={maxCount} />
-                  <div className="question">
-                    {parseStringAsDOM(response.results[count - 1].question)}
-                  </div>
+                  <Question data={response.results[count - 1]} />
 
                   <div className="buttonsContainer">
                     <button
