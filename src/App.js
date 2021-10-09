@@ -40,7 +40,7 @@ function App() {
               // no need to use another state to store data, response is sufficient
               response && (
                 <div className="mainContainer">
-                  <Counter count={count} />
+                  <Counter count={count} maxCount={maxCount} />
                   <div className="question">
                     {parseStringAsDOM(response.results[count - 1].question)}
                   </div>
