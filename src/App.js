@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     if (response !== null && response !== undefined) {
-      console.log(response.results);
+      console.log("Start Progress Bar Here");
     }
   }, [response]);
 
