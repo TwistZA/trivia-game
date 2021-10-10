@@ -1,6 +1,5 @@
 import parseStringAsDOM from "../../Helpers/parseStringAsDOM";
 import "./Question.css";
-import fisherYatesShuffle from "../../Helpers/fisherYatesShuffle";
 import Snackbar from "../Snackbar/Snackbar";
 import { useState } from "react";
 
@@ -8,7 +7,7 @@ const Question = ({ data }) => {
   const [snack, setSnack] = useState({ enabled: false, text: "" });
 
   console.log(
-    `CORRECT = ${data.correct_answer} ........ INCORRECT= ${data.incorrect_answers}`
+    `- CORRECT = ${data.correct_answer} - INCORRECT= ${data.incorrect_answers} - shuffled = ${data.shuffled}`
   );
 
   const showSnackBar = (text) => {
@@ -18,13 +17,6 @@ const Question = ({ data }) => {
       setSnack({ enabled: false, text: "" });
     }, 3000);
   };
-
-  //create a single data structure with all answers and then shuffle it
-  // create array by joining correct and incorrect answers
-  let choices = [data.correct_answer, ...data.incorrect_answers];
-
-  // now shuffle this array using fisher yates algorithm
-  fisherYatesShuffle(choices);
 
   const handleClick = (choice) => {
     if (choice.target.innerText === data.correct_answer) {
@@ -40,7 +32,7 @@ const Question = ({ data }) => {
     <div className="question">
       {parseStringAsDOM(data.question)}
       <div>
-        {choices.map((choice) => (
+        {data.shuffled.map((choice) => (
           <div
             key={choice}
             className="choice"

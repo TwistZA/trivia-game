@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { useAxios } from "./Hooks/AxiosHook";
 import Counter from "./Components/Counter/Counter";
 import Question from "./Components/Questions/Questions";
+import fisherYatesShuffle from "./Helpers/fisherYatesShuffle";
 
 function App() {
   const [count, setCount] = useState(1);
+  const [questions, setQuestions] = useState([]);
   const maxCount = 10;
 
   // get 10 random trivia from free web api with  this re-usable axios custom hook
@@ -17,8 +19,33 @@ function App() {
   useEffect(() => {
     if (response !== null && response !== undefined) {
       console.log("Start Progress Bar Here");
+      createQuestions();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
+
+  // construct data structure with correct, incorrect answers and shuffled array
+  let list = [];
+  let q;
+  const createQuestions = () => {
+    for (let i = 0; i < response.results.length; i++) {
+      let shuffledArray = [
+        response.results[i].correct_answer,
+        ...response.results[i].incorrect_answers,
+      ];
+      fisherYatesShuffle(shuffledArray);
+
+      q = {
+        question: response.results[i].question,
+        correct_answer: response.results[i].correct_answer,
+        incorrect_answers: response.results[i].incorrect_answers,
+        shuffled: shuffledArray,
+      };
+
+      list.push(q);
+    }
+    setQuestions(list);
+  };
 
   return (
     <div className="App">
@@ -39,7 +66,7 @@ function App() {
               response && (
                 <div className="mainContainer">
                   <Counter count={count} maxCount={maxCount} />
-                  <Question data={response.results[count - 1]} />
+                  <Question data={questions[count - 1]} />
 
                   <div className="buttonsContainer">
                     <button
