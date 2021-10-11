@@ -6,10 +6,17 @@ import { useState, useEffect } from "react";
 const Question = ({ data }) => {
   const [snack, setSnack] = useState({ enabled: false, text: "" });
   const [choiceStyles, setChoiceStyles] = useState([]);
+  const [snackTimeout, setSnackTimeout] = useState();
 
   // choiceStyles logic
   // on first load OR new question - hide answers . styles= choice css class
   // on user selection - show answers. set styles "correctChoice" or "correctChoice "for each choice
+
+  const hideSnackBar = () => {
+    clearTimeout(snackTimeout);
+    setSnack({ enabled: false, text: "" });
+  };
+
   useEffect(() => {
     const hideAnswers = () => {
       let styles = [];
@@ -18,6 +25,7 @@ const Question = ({ data }) => {
       }
 
       setChoiceStyles(styles);
+      hideSnackBar();
     };
 
     hideAnswers();
@@ -44,9 +52,12 @@ const Question = ({ data }) => {
   const showSnackBar = (text) => {
     //show and hide snackbar
     setSnack({ enabled: true, text: text });
-    setTimeout(() => {
+
+    let snackBarTimeout = setTimeout(() => {
       setSnack({ enabled: false, text: "" });
     }, 3000);
+
+    setSnackTimeout(snackBarTimeout);
   };
 
   const handleClick = (choice) => {
