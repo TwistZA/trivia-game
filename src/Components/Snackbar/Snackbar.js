@@ -2,7 +2,6 @@ import React from "react";
 import "./Snackbar.css";
 
 const Snackbar = ({ snack }) => {
-  console.log(snack);
   return (
     <div id="snackbar" className={snack.enabled ? "show" : ""}>
       {snack.text}

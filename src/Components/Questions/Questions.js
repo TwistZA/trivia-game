@@ -1,10 +1,41 @@
 import parseStringAsDOM from "../../Helpers/parseStringAsDOM";
 import "./Question.css";
 import Snackbar from "../Snackbar/Snackbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Question = ({ data }) => {
   const [snack, setSnack] = useState({ enabled: false, text: "" });
+  const [choiceStyles, setChoiceStyles] = useState([]);
+
+  // choiceStyles logic
+  // on first load OR new question - hide answers . styles= choice css class
+  // on user selection - show answers. set styles "correctChoice" or "correctChoice "for each choice
+  useEffect(() => {
+    const hideAnswers = () => {
+      let styles = [];
+      for (let i = 0; i < data.shuffled.length; i++) {
+        styles[i] = "choice";
+      }
+
+      setChoiceStyles(styles);
+    };
+
+    hideAnswers();
+  }, [data]);
+
+  const showAnswers = () => {
+    let styles = [];
+
+    for (let i = 0; i < data.shuffled.length; i++) {
+      if (data.shuffled[i] === data.correct_answer) {
+        styles[i] = "correctChoice";
+      } else {
+        styles[i] = "incorrectChoice";
+      }
+    }
+
+    setChoiceStyles(styles);
+  };
 
   console.log(
     `- CORRECT = ${data.correct_answer} - INCORRECT= ${data.incorrect_answers} - shuffled = ${data.shuffled}`
@@ -20,22 +51,21 @@ const Question = ({ data }) => {
 
   const handleClick = (choice) => {
     if (choice.target.innerText === data.correct_answer) {
-      console.log(`${choice.target.innerText} -----CORRECT-----`);
       showSnackBar("CORRECT");
     } else {
       showSnackBar("INCORRECT");
-      console.log(`${choice.target.innerText} -----INCORRECT-----`);
     }
+    showAnswers();
   };
 
   return (
     <div className="question">
       {parseStringAsDOM(data.question)}
       <div>
-        {data.shuffled.map((choice) => (
+        {data.shuffled.map((choice, index) => (
           <div
             key={choice}
-            className="choice"
+            className={choiceStyles[index]}
             onClick={(choice) => handleClick(choice)}
           >
             {parseStringAsDOM(choice)}

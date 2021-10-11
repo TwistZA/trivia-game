@@ -17,5 +17,20 @@
     border:ridge 2px mediumspringgreen;
     font-weight: bold;
     color: mediumspringgreen;
+    
+}
 
+.correctChoice{
+    margin: 15px 15px;
+    padding: 5px 5px;
+    border:ridge 1px mediumspringgreen;
+    color: mediumspringgreen;
+    pointer-events: none;
+}
+.incorrectChoice{
+    margin: 15px 15px;
+    padding: 5px 5px;
+    border:ridge 1px red;
+    color: red;
+    pointer-events: none;
 }

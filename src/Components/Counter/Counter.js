@@ -1,5 +1,4 @@
 const Counter = ({ count, maxCount }) => {
-  console.log(count);
   return (
     <div>
       Question {count} of {maxCount}
