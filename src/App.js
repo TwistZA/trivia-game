@@ -2,14 +2,17 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useAxios } from "./Hooks/AxiosHook";
 import Counter from "./Components/Counter/Counter";
-import Question from "./Components/Questions/Questions";
+import Question from "./Components/Question/Question";
 import fisherYatesShuffle from "./Helpers/fisherYatesShuffle";
 import Score from "./Components/Score/Score";
+import ProgressBar from "./Components/ProgressBar/ProgressBar";
 
 function App() {
   const [count, setCount] = useState(1);
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
+  const [progress, setProgress] = useState(0);
+
   const maxCount = 10;
 
   // get 10 random trivia from free web api with  this re-usable axios custom hook
@@ -20,8 +23,8 @@ function App() {
 
   useEffect(() => {
     if (response !== null && response !== undefined) {
-      console.log("Start Progress Bar Here");
       createQuestions();
+      startProgressBar();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
@@ -47,6 +50,20 @@ function App() {
       list.push(q);
     }
     setQuestions(list);
+  };
+
+  const startProgressBar = () => {
+    let p = 0;
+    let count = 0;
+
+    let interval = setInterval(() => {
+      count = count + 1;
+      if (count === 100) {
+        clearInterval(interval);
+      }
+      p = count;
+      setProgress(p);
+    }, 100);
   };
 
   const incrementScore = (value) => {
@@ -77,6 +94,7 @@ function App() {
                     data={questions[count - 1]}
                     incrementScore={incrementScore}
                   />
+                  <ProgressBar progress={progress} />
 
                   <div className="buttonsContainer">
                     <button
