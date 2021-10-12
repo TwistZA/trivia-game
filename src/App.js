@@ -4,10 +4,12 @@ import { useAxios } from "./Hooks/AxiosHook";
 import Counter from "./Components/Counter/Counter";
 import Question from "./Components/Questions/Questions";
 import fisherYatesShuffle from "./Helpers/fisherYatesShuffle";
+import Score from "./Components/Score/Score";
 
 function App() {
   const [count, setCount] = useState(1);
   const [questions, setQuestions] = useState([]);
+  const [score, setScore] = useState(0);
   const maxCount = 10;
 
   // get 10 random trivia from free web api with  this re-usable axios custom hook
@@ -47,6 +49,10 @@ function App() {
     setQuestions(list);
   };
 
+  const incrementScore = (value) => {
+    setScore(score + value);
+  };
+
   return (
     <div className="App">
       <h1>Trivia Royale</h1>
@@ -65,8 +71,12 @@ function App() {
               // no need to use another state to store data, response is sufficient
               response && (
                 <div className="mainContainer">
+                  <Score score={score} />
                   <Counter count={count} maxCount={maxCount} />
-                  <Question data={questions[count - 1]} />
+                  <Question
+                    data={questions[count - 1]}
+                    incrementScore={incrementScore}
+                  />
 
                   <div className="buttonsContainer">
                     <button

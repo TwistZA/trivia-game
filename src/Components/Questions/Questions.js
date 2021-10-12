@@ -3,7 +3,7 @@ import "./Question.css";
 import Snackbar from "../Snackbar/Snackbar";
 import { useState, useEffect } from "react";
 
-const Question = ({ data }) => {
+const Question = ({ data, incrementScore }) => {
   const [snack, setSnack] = useState({ enabled: false, text: "" });
   const [choiceStyles, setChoiceStyles] = useState([]);
   const [snackTimeout, setSnackTimeout] = useState();
@@ -63,6 +63,7 @@ const Question = ({ data }) => {
   const handleClick = (choice) => {
     if (choice.target.innerText === data.correct_answer) {
       showSnackBar("CORRECT");
+      incrementScore(1);
     } else {
       showSnackBar("INCORRECT");
     }
