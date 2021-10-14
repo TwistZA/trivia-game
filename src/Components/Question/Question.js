@@ -2,11 +2,14 @@ import parseStringAsDOM from "../../Helpers/parseStringAsDOM";
 import "./Question.css";
 import Snackbar from "../Snackbar/Snackbar";
 import { useState, useEffect } from "react";
+import { useProgressBar } from "../../Hooks/useProgressBar";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const Question = ({ data, incrementScore }) => {
   const [snack, setSnack] = useState({ enabled: false, text: "" });
   const [choiceStyles, setChoiceStyles] = useState([]);
   const [snackTimeout, setSnackTimeout] = useState();
+  const { progress, startProgressBar, stopProgressBar } = useProgressBar();
 
   // choiceStyles logic
   // on first load OR new question - hide answers . styles= choice css class
@@ -29,6 +32,9 @@ const Question = ({ data, incrementScore }) => {
     };
 
     hideAnswers();
+    stopProgressBar();
+    startProgressBar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const showAnswers = () => {
@@ -45,9 +51,9 @@ const Question = ({ data, incrementScore }) => {
     setChoiceStyles(styles);
   };
 
-  console.log(
-    `- CORRECT = ${data.correct_answer} - INCORRECT= ${data.incorrect_answers} - shuffled = ${data.shuffled}`
-  );
+  // console.log(
+  //   `- CORRECT = ${data.correct_answer} - INCORRECT= ${data.incorrect_answers} - shuffled = ${data.shuffled}`
+  // );
 
   const showSnackBar = (text) => {
     //show and hide snackbar
@@ -61,6 +67,7 @@ const Question = ({ data, incrementScore }) => {
   };
 
   const handleClick = (choice) => {
+    stopProgressBar();
     if (choice.target.innerText === data.correct_answer) {
       showSnackBar("CORRECT");
       incrementScore(1);
@@ -69,6 +76,8 @@ const Question = ({ data, incrementScore }) => {
     }
     showAnswers();
   };
+
+  // startProgressBar();
 
   return (
     <div className="question">
@@ -83,7 +92,9 @@ const Question = ({ data, incrementScore }) => {
             {parseStringAsDOM(choice)}
           </div>
         ))}
+        <ProgressBar progress={progress} />
       </div>
+
       <Snackbar snack={snack} />
     </div>
   );
