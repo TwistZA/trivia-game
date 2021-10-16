@@ -92,8 +92,8 @@ const Question = ({ data, incrementScore }) => {
             {parseStringAsDOM(choice)}
           </div>
         ))}
-        <ProgressBar progress={progress} />
       </div>
+      <ProgressBar progress={progress} />
 
       <Snackbar snack={snack} />
     </div>
