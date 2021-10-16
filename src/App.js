@@ -5,6 +5,7 @@ import Counter from "./Components/Counter/Counter";
 import Question from "./Components/Question/Question";
 import fisherYatesShuffle from "./Helpers/fisherYatesShuffle";
 import Score from "./Components/Score/Score";
+import { Profile } from "./Components/Profile/Profile";
 
 function App() {
   const [count, setCount] = useState(1);
@@ -73,7 +74,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Trivia Royale</h1>
+      <div className="header">
+        <div className="headerItem">Score stuff</div>
+        <div className="headerItem">Trivia Royale</div>
+        <div className="headerItem">
+          <Profile />
+        </div>
+      </div>
       {loading ? (
         <p>loading...</p>
       ) : (

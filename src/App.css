@@ -34,3 +34,16 @@
 button:hover{
   cursor: pointer;
 }
+
+.header{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width:90vw;
+}
+
+.headerItem{
+  text-align: center;
+  font-size: xx-large;
+  align-self: center;
+
+}
