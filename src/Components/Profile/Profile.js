@@ -6,15 +6,17 @@ export const Profile = () => {
   const createProfile = () => {
     let id = uuidv4();
     localStorage.setItem("id", id);
-    setProfile(id);
   };
 
-  const [profile, setProfile] = useState(() => {
-    // getting stored value
-    const saved = localStorage.getItem("id");
-    const initialValue = saved;
-    return initialValue || createProfile();
-  });
+  const saved = localStorage.getItem("id");
 
-  return <div>Guest-{profile.slice(0, 6)}</div>;
+  const initialValue = saved || createProfile();
+  const [profile, setProfile] = useState(initialValue);
+
+  return (
+    <div>
+      <div>Pic</div>
+      <div>{profile && `Guest - ${profile.slice(0, 6)}`}</div>
+    </div>
+  );
 };
