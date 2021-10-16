@@ -69,10 +69,11 @@ const Question = ({ data, incrementScore }) => {
   const handleClick = (choice) => {
     stopProgressBar();
     if (choice.target.innerText === data.correct_answer) {
-      showSnackBar("CORRECT");
-      incrementScore(1);
+      showSnackBar(`CORRECT`);
+      incrementScore(1, 10 - progress / 10);
     } else {
-      showSnackBar("INCORRECT");
+      showSnackBar(`INCORRECT`);
+      incrementScore(0, 10 - progress / 10);
     }
     showAnswers();
   };

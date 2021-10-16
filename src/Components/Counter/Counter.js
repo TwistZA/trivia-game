@@ -1,7 +1,7 @@
-const Counter = ({ count, maxCount }) => {
+const Counter = ({ count, maxCount, difficulty }) => {
   return (
     <div>
-      Question {count} of {maxCount}
+      Question {count} of {maxCount} ({difficulty})
     </div>
   );
 };

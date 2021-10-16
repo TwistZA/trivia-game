@@ -42,6 +42,7 @@ function App() {
         correct_answer: response.results[i].correct_answer,
         incorrect_answers: response.results[i].incorrect_answers,
         shuffled: shuffledArray,
+        difficulty: response.results[i].difficulty,
       };
 
       list.push(q);
@@ -49,8 +50,25 @@ function App() {
     setQuestions(list);
   };
 
-  const incrementScore = (value) => {
-    setScore(score + value);
+  const incrementScore = (value, timeRemaining) => {
+    //score calculation
+    // easy=150, medium=350, hard=500
+    // time remaining [0-3] [4-6] [7-10];
+
+    let difficulty = questions[count - 1].difficulty.toLowerCase();
+    let difficultyScore = 0;
+
+    if (difficulty === "easy") {
+      difficultyScore = 150;
+    } else if (difficulty === "medium") {
+      difficultyScore = 350;
+    } else if (difficulty === "hard") {
+      difficultyScore = 500;
+    }
+
+    let newScore = value * difficultyScore * timeRemaining;
+
+    setScore(score + newScore);
   };
 
   return (
@@ -71,20 +89,17 @@ function App() {
               response && (
                 <div className="mainContainer">
                   <Score score={score} />
-                  <Counter count={count} maxCount={maxCount} />
+                  <Counter
+                    count={count}
+                    maxCount={maxCount}
+                    difficulty={questions[count - 1].difficulty}
+                  />
                   <Question
                     data={questions[count - 1]}
                     incrementScore={incrementScore}
                   />
 
                   <div className="buttonsContainer">
-                    <button
-                      disabled={count === 1}
-                      id="prev"
-                      onClick={() => setCount(count - 1)}
-                    >
-                      Prev
-                    </button>
                     <button
                       disabled={count >= maxCount}
                       id="next"
