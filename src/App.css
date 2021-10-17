@@ -41,9 +41,21 @@ button:hover{
   width:90vw;
 }
 
-.headerItem{
+.rank{
+  text-align: center;
+  align-self: center;
+  
+}
+
+.profile{
+  text-align: center;
+  align-self: center;
+  font-size: medium;
+  color: whitesmoke;
+}
+
+.title{
   text-align: center;
   font-size: xx-large;
   align-self: center;
-
 }

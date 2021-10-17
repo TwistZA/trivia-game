@@ -1,0 +1,34 @@
+.editProfile{
+    display: none;
+}
+
+.editProfile:hover{
+    display: block;
+}
+
+
+
+
+.name:hover ~.editProfile{
+    display: block;
+    cursor:pointer
+}
+
+.userNameInput {
+    background-color:lightgoldenrodyellow;
+    color: black;
+    border: ridge 1px blueviolet;
+    border-radius: 15px;
+    line-height: 2em;
+    padding: 5px 5px;
+}
+
+.submitButton {
+    background-color: cornflowerblue;
+    line-height: 2em;
+    border: ridge 1px silver;
+    border-radius: 15px;
+    color:white;
+    font-size: medium;
+}
+

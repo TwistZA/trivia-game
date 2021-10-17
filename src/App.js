@@ -75,9 +75,9 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <div className="headerItem">Score stuff</div>
-        <div className="headerItem">Trivia Royale</div>
-        <div className="headerItem">
+        <div className="rank">Ranking</div>
+        <div className="title">Trivia Royale</div>
+        <div className="profile">
           <Profile />
         </div>
       </div>
