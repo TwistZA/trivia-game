@@ -107,13 +107,25 @@ function MainGame() {
                   />
 
                   <div className="buttonsContainer">
-                    <button
-                      disabled={count >= maxCount}
-                      id="next"
-                      onClick={() => setCount(count + 1)}
-                    >
-                      Next
-                    </button>
+                    {count < 10 && (
+                      <button
+                        disabled={count >= maxCount}
+                        id="next"
+                        onClick={() => setCount(count + 1)}
+                      >
+                        Next
+                      </button>
+                    )}
+
+                    {count >= 10 && (
+                      <button
+                        // disabled={!gameOver}
+                        id="finish"
+                        onClick={() => console.log("Game Over")}
+                      >
+                        Finish
+                      </button>
+                    )}
                   </div>
                 </div>
               )
