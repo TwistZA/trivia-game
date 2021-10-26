@@ -6,6 +6,7 @@ import Question from "../Question/Question";
 import fisherYatesShuffle from "../../Helpers/fisherYatesShuffle";
 import Score from "../Score/Score";
 import { Profile } from "../Profile/Profile";
+import { Link } from "react-router-dom";
 
 function MainGame() {
   const [count, setCount] = useState(1);
@@ -118,13 +119,11 @@ function MainGame() {
                     )}
 
                     {count >= 10 && (
-                      <button
-                        // disabled={!gameOver}
-                        id="finish"
-                        onClick={() => console.log("Game Over")}
-                      >
-                        Finish
-                      </button>
+                      <div>
+                        <Link className="link" to="/summary">
+                          Finish
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>

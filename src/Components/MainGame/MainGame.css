@@ -59,4 +59,15 @@
     font-size: xx-large;
     align-self: center;
   }
+
+
+  .link{
+    color: whitesmoke;
+    font-size: large;
+    text-decoration: none;
+    border: palevioletred solid 1px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    letter-spacing: 2px;
+  }
   

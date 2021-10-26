@@ -1,9 +1,9 @@
-import MainGame from "./Components/MainGame/MainGame";
+import Launcher from "./Components/Launcher/Launcher";
 
 function App() {
   return (
     <div>
-      <MainGame />
+      <Launcher />
     </div>
   );
 }
