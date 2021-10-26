@@ -1,8 +1,9 @@
 import Launcher from "./Components/Launcher/Launcher";
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Launcher />
     </div>
   );

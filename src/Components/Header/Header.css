@@ -1,0 +1,24 @@
+.header{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width:90vw;
+  }
+  
+  .rank{
+    text-align: center;
+    align-self: center;
+    
+  }
+  
+  .profile{
+    text-align: center;
+    align-self: center;
+    font-size: medium;
+    color: whitesmoke;
+  }
+  
+  .title{
+    text-align: center;
+    font-size: xx-large;
+    align-self: center;
+  }

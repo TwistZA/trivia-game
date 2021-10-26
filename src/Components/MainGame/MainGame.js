@@ -5,7 +5,6 @@ import Counter from "../Counter/Counter";
 import Question from "../Question/Question";
 import fisherYatesShuffle from "../../Helpers/fisherYatesShuffle";
 import Score from "../Score/Score";
-import { Profile } from "../Profile/Profile";
 import { Link } from "react-router-dom";
 
 function MainGame() {
@@ -75,13 +74,6 @@ function MainGame() {
 
   return (
     <div className="App">
-      <div className="header">
-        <div className="rank">Ranking</div>
-        <div className="title">Trivia Royale</div>
-        <div className="profile">
-          <Profile />
-        </div>
-      </div>
       {loading ? (
         <p>loading...</p>
       ) : (
