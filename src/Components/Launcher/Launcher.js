@@ -3,10 +3,11 @@ import React from "react";
 import MainGame from "./../MainGame/MainGame";
 import { Summary } from "../Summary/Summary";
 import Header from "../Header/Header";
+import "./Launcher.css";
 
 const Launcher = () => {
   return (
-    <div>
+    <div className="launchContainer">
       <Header />
       <Router>
         <Switch>

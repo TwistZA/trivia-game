@@ -112,7 +112,13 @@ function MainGame() {
 
                     {count >= 10 && (
                       <div>
-                        <Link className="link" to="/summary">
+                        <Link
+                          className="link"
+                          to={{
+                            pathname: "/summary",
+                            state: { score: score },
+                          }}
+                        >
                           Finish
                         </Link>
                       </div>
