@@ -1,14 +1,22 @@
 .header{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr;
     width:90vw;
   }
   
   .rank{
-    text-align: center;
+    text-align: left;
     align-self: center;
-    
+    font-size: x-small
   }
+
+  .rankingItems{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40px;
+  }
+
+
   
   .profile{
     text-align: center;

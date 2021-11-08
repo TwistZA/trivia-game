@@ -5,7 +5,16 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header">
-      <div className="rank">Ranking</div>
+      <div className="rank">
+        <div className="rankingItems">
+          <div>Personal Best</div>
+          <div>XXXX</div>
+        </div>
+        <div className="rankingItems">
+          <div>World Best</div>
+          <div>XXXX</div>
+        </div>
+      </div>
       <div className="title">Trivia Royale</div>
       <div className="profile">
         <Profile />
