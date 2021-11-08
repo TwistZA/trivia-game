@@ -7,7 +7,7 @@ const Header = () => {
     <div className="header">
       <div className="rank">
         <div className="rankingItems">
-          <div>Personal Best</div>
+          <div>Your Best</div>
           <div>88888</div>
         </div>
         <div className="rankingItems">

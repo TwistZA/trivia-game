@@ -7,13 +7,13 @@
   .rank{
     text-align: left;
     align-self: center;
-    font-size: x-small
+    font-size: x-small;
   }
 
   .rankingItems{
     display: flex;
     justify-content: space-between;
-    padding-right: 20px;
+    padding-right: 5px;
   }
 
 
