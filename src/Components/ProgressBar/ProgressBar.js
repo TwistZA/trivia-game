@@ -4,7 +4,7 @@ import "./ProgressBar.css";
 const ProgressBar = ({ progress }) => {
   let display = 100 - progress;
   return (
-    <div className="container">
+    <div className="progressBarContainer">
       <div className="barBackGround">
         <div style={{ width: `${display}%` }} className="bar">
           👀
