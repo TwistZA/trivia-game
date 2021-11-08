@@ -8,11 +8,11 @@ const Header = () => {
       <div className="rank">
         <div className="rankingItems">
           <div>Personal Best</div>
-          <div>XXXX</div>
+          <div>88888</div>
         </div>
         <div className="rankingItems">
           <div>World Best</div>
-          <div>XXXX</div>
+          <div>88888</div>
         </div>
       </div>
       <div className="title">Trivia Royale</div>
