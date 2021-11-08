@@ -6,6 +6,7 @@ import Question from "../Question/Question";
 import fisherYatesShuffle from "../../Helpers/fisherYatesShuffle";
 import Score from "../Score/Score";
 import { Link } from "react-router-dom";
+import "../Button/Button.css";
 
 function MainGame() {
   const [count, setCount] = useState(1);
@@ -102,6 +103,7 @@ function MainGame() {
                   <div className="buttonsContainer">
                     {count < 10 && (
                       <button
+                        className="Green3D"
                         disabled={count >= maxCount}
                         id="next"
                         onClick={() => setCount(count + 1)}
@@ -113,7 +115,7 @@ function MainGame() {
                     {count >= 10 && (
                       <div>
                         <Link
-                          className="link"
+                          className="redbutton"
                           to={{
                             pathname: "/summary",
                             state: { score: score },
