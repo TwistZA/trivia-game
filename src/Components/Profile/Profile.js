@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import "./Profile.css";
 import { useForm } from "../../Hooks/useFormHook";
-
+import "../Button/Button.css";
 export const Profile = () => {
   // logic
   // on first load, check localstroage if there is a username, then show username
@@ -43,7 +43,9 @@ export const Profile = () => {
       <div className="name">{profile}</div>
 
       <div className="editProfile">
-        <button onClick={handleEditProfileClick}>Edit Name</button>
+        <button className="TinyPurple" onClick={handleEditProfileClick}>
+          Edit Name
+        </button>
 
         <div
           style={{
@@ -57,8 +59,15 @@ export const Profile = () => {
               name="username"
               onChange={onChange}
               placeholder="enter new name"
+              maxlength="15"
             />
-            <input className="submitButton" type="submit" value="Submit" />
+            <input className="TinyGreen" type="submit" value="Submit" />
+            <input
+              className="TinyRed"
+              type="button"
+              value="Cancel"
+              onClick={() => setEditMode(false)}
+            />
           </form>
         </div>
       </div>

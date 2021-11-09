@@ -42,7 +42,6 @@
  }
 
 
-
  .redbutton {
     background: #F63D3D;
     background-image: -webkit-linear-gradient(top, #F63D3D, #811616);
@@ -82,6 +81,134 @@
     background-image: -ms-linear-gradient(top, #811616, #F63D3D);
     background-image: -o-linear-gradient(top, #811616, #F63D3D);
     background-image: linear-gradient(to bottom, #811616, #F63D3D);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ }
+
+
+
+
+ .TinyPurple {
+    background: #E33DF6;
+    background-image: -webkit-linear-gradient(top, #E33DF6, #560B57);
+    background-image: -moz-linear-gradient(top, #E33DF6, #560B57);
+    background-image: -ms-linear-gradient(top, #E33DF6, #560B57);
+    background-image: -o-linear-gradient(top, #E33DF6, #560B57);
+    background-image: linear-gradient(to bottom, #E33DF6, #560B57);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    line-height: 12px;
+    color: #FFFFFF;
+    font-family: Open Sans;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 4px 0px #000000;
+    -webkit-box-shadow: 1px 1px 4px 0px #000000;
+    -moz-box-shadow: 1px 1px 4px 0px #000000;
+    text-shadow: 1px 1px 5px #000000;
+    border: solid #770D73 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align:center;
+ }
+ 
+ .TinyPurple:hover {
+    border: solid #770D73 1px;
+    background: #560B57;
+    background-image: -webkit-linear-gradient(top, #560B57, #E33DF6);
+    background-image: -moz-linear-gradient(top, #560B57, #E33DF6);
+    background-image: -ms-linear-gradient(top, #560B57, #E33DF6);
+    background-image: -o-linear-gradient(top, #560B57, #E33DF6);
+    background-image: linear-gradient(to bottom, #560B57, #E33DF6);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ }
+
+
+ .TinyGreen {
+    background: #3DF670;
+    background-image: -webkit-linear-gradient(top, #3DF670, #0B5724);
+    background-image: -moz-linear-gradient(top, #3DF670, #0B5724);
+    background-image: -ms-linear-gradient(top, #3DF670, #0B5724);
+    background-image: -o-linear-gradient(top, #3DF670, #0B5724);
+    background-image: linear-gradient(to bottom, #3DF670, #0B5724);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    line-height: 12px;
+    color: #FFFFFF;
+    font-family: Open Sans;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 4px 0px #000000;
+    -webkit-box-shadow: 1px 1px 4px 0px #000000;
+    -moz-box-shadow: 1px 1px 4px 0px #000000;
+    text-shadow: 1px 1px 5px #000000;
+    border: solid #0D772A 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align:center;
+ }
+ 
+ .TinyGreen:hover {
+    border: solid #0D772A 1px;
+    background: #3DF670;
+    background-image: -webkit-linear-gradient(top, #3DF670, #0B5724);
+    background-image: -moz-linear-gradient(top, #3DF670, #0B5724);
+    background-image: -ms-linear-gradient(top, #3DF670, #0B5724);
+    background-image: -o-linear-gradient(top, #3DF670, #0B5724);
+    background-image: linear-gradient(to bottom, #3DF670, #0B5724);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ }
+
+
+ .TinyRed {
+    background: #F63D3D;
+    background-image: -webkit-linear-gradient(top, #F63D3D, #811616);
+    background-image: -moz-linear-gradient(top, #F63D3D, #811616);
+    background-image: -ms-linear-gradient(top, #F63D3D, #811616);
+    background-image: -o-linear-gradient(top, #F63D3D, #811616);
+    background-image: linear-gradient(to bottom, #F63D3D, #811616);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    line-height: 12px;
+    color: #FFFFFF;
+    font-family: Open Sans;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 4px 0px #000000;
+    -webkit-box-shadow: 1px 1px 4px 0px #000000;
+    -moz-box-shadow: 1px 1px 4px 0px #000000;
+    text-shadow: 1px 1px 5px #000000;
+    border: solid #762C2C 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align:center;
+ }
+ 
+ .TinyRed:hover {
+    border: solid #762C2C 1px;
+    background: #F63D3D;
+    background-image: -webkit-linear-gradient(top, #F63D3D, #811616);
+    background-image: -moz-linear-gradient(top, #F63D3D, #811616);
+    background-image: -ms-linear-gradient(top, #F63D3D, #811616);
+    background-image: -o-linear-gradient(top, #F63D3D, #811616);
+    background-image: linear-gradient(to bottom, #F63D3D, #811616);
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
