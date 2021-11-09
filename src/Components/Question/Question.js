@@ -6,7 +6,11 @@ import { useProgressBar } from "../../Hooks/useProgressBar";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 const Question = ({ data, incrementScore }) => {
-  const [snack, setSnack] = useState({ enabled: false, text: "" });
+  const [snack, setSnack] = useState({
+    enabled: false,
+    text: "",
+    color: "purple",
+  });
   const [choiceStyles, setChoiceStyles] = useState([]);
   const [snackTimeout, setSnackTimeout] = useState();
   const { progress, startProgressBar, stopProgressBar } = useProgressBar();
@@ -55,9 +59,9 @@ const Question = ({ data, incrementScore }) => {
   //   `- CORRECT = ${data.correct_answer} - INCORRECT= ${data.incorrect_answers} - shuffled = ${data.shuffled}`
   // );
 
-  const showSnackBar = (text) => {
+  const showSnackBar = (text, color) => {
     //show and hide snackbar
-    setSnack({ enabled: true, text: text });
+    setSnack({ enabled: true, text: text, color: color });
 
     let snackBarTimeout = setTimeout(() => {
       setSnack({ enabled: false, text: "" });
@@ -69,10 +73,10 @@ const Question = ({ data, incrementScore }) => {
   const handleClick = (choice) => {
     stopProgressBar();
     if (choice.target.innerText === data.correct_answer) {
-      showSnackBar(`CORRECT`);
+      showSnackBar(`CORRECT`, "green");
       incrementScore(1, 10 - progress / 10);
     } else {
-      showSnackBar(`INCORRECT`);
+      showSnackBar(`INCORRECT`, "red");
       incrementScore(0, 10 - progress / 10);
     }
     showAnswers();

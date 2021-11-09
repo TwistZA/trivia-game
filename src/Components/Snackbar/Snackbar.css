@@ -1,17 +1,16 @@
 #snackbar {
     visibility: hidden;
-    min-width: 250px;
-    margin-left: -125px;
-    background-color: rgb(71, 70, 167);
+    min-width: 150px;
     color: #fff;
     text-align: center;
-    border-radius: 2px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 10px;
     position: fixed;
     z-index: 1;
-    left: 50%;
     top: 30px;
     font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 2px;
   }
   
   #snackbar.show {

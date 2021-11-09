@@ -2,8 +2,13 @@ import React from "react";
 import "./Snackbar.css";
 
 const Snackbar = ({ snack }) => {
+  console.log(`Snack color is ${snack.color}`);
   return (
-    <div id="snackbar" className={snack.enabled ? "show" : ""}>
+    <div
+      id="snackbar"
+      className={snack.enabled ? "show" : ""}
+      style={{ backgroundColor: snack.color }}
+    >
       {snack.text}
     </div>
   );
